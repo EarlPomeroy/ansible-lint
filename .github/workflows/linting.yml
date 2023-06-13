@@ -15,10 +15,12 @@ jobs:
           python-version: "3.10"
 
       - name: Install test dependencies
-        run: pip3 install yamllint
+        run: |
+          pip3 install yamllint
+          pip3 install ansible-lint
 
       - name: Run yamllint
         run: yamllint .
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint-action@v6.16.0
+        run: ansible-lint
